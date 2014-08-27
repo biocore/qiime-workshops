@@ -2,15 +2,21 @@
 
 ## Filter to just the Greengenes OTUs
 
-`filter_otus_from_otu_table.py -i otu_table_mc2_w_tax.biom -o otu_table_mc2_w_tax_gg.biom --negate_ids_to_exclude -e $GG_TAXONOMY`
+```
+filter_otus_from_otu_table.py -i otu_table_mc2_w_tax.biom -o otu_table_mc2_w_tax_gg.biom --negate_ids_to_exclude -e $GG_TAXONOMY
+```
 
 ## Normalize by 16S copy number
 
-`normalize_by_copy_number.py -i otu_table_mc2_w_tax_gg.biom -o otu_table_mc2_w_tax_gg_normed.biom`
+```
+normalize_by_copy_number.py -i otu_table_mc2_w_tax_gg.biom -o otu_table_mc2_w_tax_gg_normed.biom
+```
 
 ## Predict metagenomes
 
-`predict_metagenomes.py -i otu_table_mc2_w_tax_gg_normed.biom -o otu_table_mc2_w_tax_gg_pred.biom -a otu_table_mc2_w_tax_gg_pred.acc.txt`
+```
+predict_metagenomes.py -i otu_table_mc2_w_tax_gg_normed.biom -o otu_table_mc2_w_tax_gg_pred.biom -a otu_table_mc2_w_tax_gg_pred.acc.txt
+```
 
 ## First quick pass on analyzing results
 
@@ -34,22 +40,34 @@ invalid line 'Value\n'
     0.2321 -     0.2472 [     7]: *******
 ```
 
-`categorize_by_function.py -i otu_table_mc2_w_tax_gg_pred.biom -c "KEGG_Pathways" -l 2 -o otu_table_mc2_w_tax_gg_pred_L2.biom`
+```
+categorize_by_function.py -i otu_table_mc2_w_tax_gg_pred.biom -c "KEGG_Pathways" -l 2 -o otu_table_mc2_w_tax_gg_pred_L2.biom
+```
 
-`summarize_taxa_through_plots.py -i otu_table_mc2_w_tax_gg_pred_L2.biom -p picrust_summarize_params.txt -o plots_at_level2`
+```
+summarize_taxa_through_plots.py -i otu_table_mc2_w_tax_gg_pred_L2.biom -p picrust_summarize_params.txt -o plots_at_level2
+```
 
 ## Beta diversity
 
 First, lets figure out what a reasonable rarefaction level is
 
-`biom summarize-table -i otu_table_mc2_w_tax_gg_pred.biom -o otu_table_mc2_w_tax_gg_pred.biom.stats`
+biom summarize-table -i otu_table_mc2_w_tax_gg_pred.biom -o otu_table_mc2_w_tax_gg_pred.biom.stats
 
 Now lets rarefy the table, compute beta diversity using Bray Curtis (as we do not have a phylogenetic tree to relate genes) and produce a PCoA plot.
 
-`single_rarefaction.py -d 229540 -i otu_table_mc2_w_tax_gg_pred.biom -o otu_table_mc2_w_tax_gg_pred_even229540.biom`
+```
+single_rarefaction.py -d 229540 -i otu_table_mc2_w_tax_gg_pred.biom -o otu_table_mc2_w_tax_gg_pred_even229540.biom
+```
 
-`beta_diversity.py -m bray_curtis -i otu_table_mc2_w_tax_gg_pred_even229540.biom -o bdiv_bc`
+```
+beta_diversity.py -m bray_curtis -i otu_table_mc2_w_tax_gg_pred_even229540.biom -o bdiv_bc
+```
 
-`principal_coordinates.py -i bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540.txt -o bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540_pc.txt`
+```
+principal_coordinates.py -i bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540.txt -o bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540_pc.txt
+```
 
-`make_emperor.py -i bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540_pc.txt -o bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540_emp -m ../input/study_103_mapping_file.txt`
+```
+make_emperor.py -i bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540_pc.txt -o bdiv_bc/bray_curtis_otu_table_mc2_w_tax_gg_pred_even229540_emp -m ../input/study_103_mapping_file.txt
+```
