@@ -4,7 +4,7 @@
 
 `split_libraries.py -m study_103_mapping_file.txt -f study_103.fna -q study_103.qual -o split_libraries/`
 
-Note that this was already performed for the workshop but it is here as a reference. You can download these files from: []
+Note that this was already performed for the workshop. [Here](ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz) are the necessary files for the next steps.
 
 ## Picking OTU against a reference.
 
