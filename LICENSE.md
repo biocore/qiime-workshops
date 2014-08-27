@@ -1,0 +1,3 @@
+This work is licensed under the Creative Commons Attribution 3.0 United States License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/us/ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+Feel free to use or modify these slides, but please credit us by placing the following attribution information where you feel that it makes sense: 
+Slides derived from QIIME educational materials www.qiime.org. 
