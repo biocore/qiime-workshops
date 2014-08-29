@@ -11,10 +11,10 @@ For the hands-on components of this workshop, you'll be working on one of four A
 
 During the workshop, we'll distrubte a key for connecting to these instances called ``qiime_isme15.pem``. To connect to the fourth of these instances, you'd run:
 
-``
+```
 chmod 400 qiime_isme15.pem
 ssh -i qiime_isme15.pem ubuntu@ec2-54-227-172-8.compute-1.amazonaws.com
-``
+```
 
 # Data preparation commands
 
