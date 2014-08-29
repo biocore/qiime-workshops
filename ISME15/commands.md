@@ -28,6 +28,8 @@ tar -xzf isme15.tgz
 cd isme15
 ```
 
+We'll use Cyberduck to transfer files back and forth between our instances and local machines. You can find our notes on working with [Cyberduck here](http://qiime.org/tutorials/working_with_aws.html#working-with-cyberduck).
+
 # Data preparation commands
 
 ## Demultiplexing your sequence files and doing quality control on the sequences
