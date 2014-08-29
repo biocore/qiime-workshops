@@ -1,6 +1,21 @@
 # Overview
 In this tutorial we will work through the analysis of soil microbial community data using [QIIME 1.8.0](http://www.qiime.org) and [PICRUSt 1.0.0](http://picrust.github.io). In order to focus on QIIME's diversity analyses, we've already run all of the steps in the *Data preparation commands* section for you, and you can download the results [here](ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz). However, you can run those commands yourself if you'd like to experiment or gain experience with them.
 
+# Setup
+
+For the hands-on components of this workshop, you'll be working on one of four Amazon Web Services (AWS) instances. The addresses for these are:
+ 1. ``ec2-23-23-12-228.compute-1.amazonaws.com``
+ 2. ``ec2-54-166-179-4.compute-1.amazonaws.com``
+ 3. ``ec2-54-166-205-154.compute-1.amazonaws.com``
+ 4. ``ec2-54-227-172-8.compute-1.amazonaws.com``
+
+During the workshop, we'll distrubte a key for connecting to these instances called ``qiime_isme15.pem``. To connect to the fourth of these instances, you'd run:
+
+``
+chmod 400 qiime_isme15.pem
+ssh -i qiime_isme15.pem ubuntu@ec2-54-227-172-8.compute-1.amazonaws.com
+``
+
 # Data preparation commands
 
 ## Demultiplexing your sequence files and doing quality control on the sequences
