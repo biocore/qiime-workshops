@@ -1,5 +1,5 @@
 # Overview
-In this tutorial we will work through the analysis of soil microbial community data using [QIIME 1.8.0](www.qiime.org) and [PICRUSt 1.0.0](picrust.github.io). In order to focus on QIIME's diversity analyses, we've already run all of the steps in the *Data preparation commands* section for you, and you can download the results [here](ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz). However, you can run those commands yourself if you'd like to experiment or gain experience with them.
+In this tutorial we will work through the analysis of soil microbial community data using [QIIME 1.8.0](http://www.qiime.org) and [PICRUSt 1.0.0](http://picrust.github.io). In order to focus on QIIME's diversity analyses, we've already run all of the steps in the *Data preparation commands* section for you, and you can download the results [here](ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz). However, you can run those commands yourself if you'd like to experiment or gain experience with them.
 
 # Data preparation commands
 
