@@ -7,6 +7,7 @@ In this tutorial we will work through the analysis of soil microbial community d
 
 ```
 export GGDIR=/home/ubuntu/qiime_software/gg_otus-13_8-release/
+export PICRUSTDIR=/home/ubuntu/qiime_software/picrust-data/
 ```
 
 ```
@@ -50,13 +51,13 @@ cd ucrss
 ## Filter to just the Greengenes OTUs
 
 ```
-filter_otus_from_otu_table.py -i otu_table_mc2_w_tax_no_pynast_failures.biom -o closed_reference_otu_table.biom --negate_ids_to_exclude -e $GG_TAXONOMY
+filter_otus_from_otu_table.py -i otu_table_mc2_w_tax_no_pynast_failures.biom -o closed_reference_otu_table.biom --negate_ids_to_exclude -e $GGDIR/taxonomy/97_otu_taxonomy.txt
 ```
 
 ## Normalize by 16S copy number
 
 ```
-normalize_by_copy_number.py -i closed_reference_otu_table.biom -o closed_reference_otu_table_normed.biom
+normalize_by_copy_number.py -i closed_reference_otu_table.biom -o closed_reference_otu_table_normed.biom -c $PICRUSTDIR/16S_13_5_precalculated.tab.gz
 ```
 
 ## Predict metagenomes
