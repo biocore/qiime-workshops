@@ -148,3 +148,32 @@ principal_coordinates.py -i bdiv_bc/bray_curtis_predicted_metagenome_even229540.
 ```
 make_emperor.py -i bdiv_bc/bray_curtis_otu_predicted_metagenome_even229540_pc.txt -o bdiv_bc/emperor -m ../map.txt
 ```
+
+# Advanced processing steps
+
+## Sorting and re-plotting OTU tables:
+
+1. Sort OTU table by PH
+sort_otu_table.py -i cd_even300/table_mc300.biom -o table.PH_sorted.biom -m map.txt -s PH
+2. Taxa summary plots on the sorted table
+summarize_taxa_through_plots.py -i table.PH_sorted.biom -o taxa.PH_sorted
+
+## Procrustes analyses:
+
+1. Get rid of samples with less than 200 sequences
+filter_samples_from_otu_table.py -i ucrss/otu_table_mc2_w_tax_no_pynast_failures.biom -o table_mc200.biom -n 200
+2. Rarefy at 200 seqs/sample
+single_rarefaction.py -i table_mc200.biom -o table_even200.biom -d 200
+3. Perform beta diversity
+beta_diversity_through_plots.py -i table_even200.biom -o bdiv_even200/ -m map.txt -t /home/ubuntu/qiime_software/gg_otus-13_8-release//trees/97_otus.tree
+4. Transform coordinates
+transform_coordinate_matrices.py -i bdiv_even200/unweighted_unifrac_pc.txt,cd_even300/bdiv_even300/unweighted_unifrac_pc.txt -r 100 -o procrustes
+5. Plot
+make_emperor.py -i procrustes/ -o procrustes/plots/ -m map.txt -c
+
+## Supervised learning
+
+1. Multiple rarefactions
+multiple_rarefactions_even_depth.py -i cd_even300/table_mc300.biom -o mul_rar.300/ -d 300
+2. Supervised learning on rarefied tables
+supervised_learning.py -i mul_rar.300/ -m map.txt -c ENV_FEATURE -o sup_learn -w sup_learn/collated_results.txt -e cv5
