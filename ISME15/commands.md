@@ -3,6 +3,9 @@ In this tutorial we will work through the analysis of soil microbial community d
 
 The data used in this workshop were originally published in [Lauber et al. 2009](http://www.ncbi.nlm.nih.gov/pubmed/19502440).
 
+# Materials
+All slides presented in this workshop are available for [download here](ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15-workshop-materials.tar.gz).
+
 # Setup: we'll work through these steps together
 
 For the hands-on components of this workshop, you'll be working on one of four Amazon Web Services (AWS) instances. The addresses for these are:
