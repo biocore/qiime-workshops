@@ -23,8 +23,8 @@ After logging in to an instance, you'll need to download the data that we're goi
 ```
 mkdir <your-name>
 cd <your-name>
-wget ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz
-tar -xzf isme15.tgz
+wget ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tar.gz
+tar -xzf isme15.tar.gz
 cd isme15
 ```
 
