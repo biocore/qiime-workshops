@@ -49,7 +49,7 @@ export PICRUSTDIR=/home/ubuntu/qiime_software/picrust-data/
 split_libraries.py -m study_103_mapping_file.txt -f study_103.fna -q study_103.qual -o slout/
 ```
 
-Note that this was already performed for the workshop. You can download the necessary files for the next steps from ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz
+Note that this was already performed for the workshop. You can download the necessary files for the next steps from ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tar.gz
 
 ## Picking OTU against a reference.
 
