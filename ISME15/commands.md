@@ -128,6 +128,11 @@ categorize_by_function.py -i predicted_metagenome.biom -c "KEGG_Pathways" -l 2 -
 ```
 
 ```
+echo "summarize_taxa:md_identifier KEGG_Pathways" > picrust_summarize_params.txt
+```
+
+
+```
 summarize_taxa_through_plots.py -i predicted_metagenome_L2.biom -p picrust_summarize_params.txt -o plots_at_level2
 ```
 
