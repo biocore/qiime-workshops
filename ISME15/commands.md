@@ -29,8 +29,8 @@ After logging in to an instance, you'll need to download the data that we're goi
 ```
 mkdir <your-name>
 cd <your-name>
-wget ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz
-tar -xzf isme15.tgz
+wget ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tar.gz
+tar -xzf isme15.tar.gz
 cd isme15
 ```
 
@@ -49,7 +49,7 @@ export PICRUSTDIR=/home/ubuntu/qiime_software/picrust-data/
 split_libraries.py -m study_103_mapping_file.txt -f study_103.fna -q study_103.qual -o slout/
 ```
 
-Note that this was already performed for the workshop. You can download the necessary files for the next steps from ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tgz
+Note that this was already performed for the workshop. You can download the necessary files for the next steps from ftp://thebeast.colorado.edu/pub/QIIME-workshop/isme15.tar.gz
 
 ## Picking OTU against a reference.
 
@@ -126,6 +126,11 @@ invalid line 'Value\n'
 ```
 categorize_by_function.py -i predicted_metagenome.biom -c "KEGG_Pathways" -l 2 -o predicted_metagenome_L2.biom
 ```
+
+```
+echo "summarize_taxa:md_identifier KEGG_Pathways" > picrust_summarize_params.txt
+```
+
 
 ```
 summarize_taxa_through_plots.py -i predicted_metagenome_L2.biom -p picrust_summarize_params.txt -o plots_at_level2
